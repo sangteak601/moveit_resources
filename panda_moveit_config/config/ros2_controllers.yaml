@@ -44,26 +44,26 @@ panda_arm_controller:
       - admittance_controller/panda_joint7
     constraints:
       panda_joint1:
-        goal: 0.1
-        trajectory: 0.1
+        goal: 0.03
+        trajectory: 0.5
       panda_joint2:
-        goal: 0.1
-        trajectory: 0.1
+        goal: 0.03
+        trajectory: 0.5
       panda_joint3:
-        goal: 0.1
-        trajectory: 0.1
+        goal: 0.03
+        trajectory: 0.5
       panda_joint4:
-        goal: 0.1
-        trajectory: 0.1
+        goal: 0.03
+        trajectory: 0.5
       panda_joint5:
-        goal: 0.1
-        trajectory: 0.1
+        goal: 0.03
+        trajectory: 0.5
       panda_joint6:
-        goal: 0.1
-        trajectory: 0.1
+        goal: 0.03
+        trajectory: 0.5
       panda_joint7:
-        goal: 0.1
-        trajectory: 0.1
+        goal: 0.03
+        trajectory: 0.5
 
 panda_hand_controller:
   ros__parameters:
@@ -101,23 +101,23 @@ admittance_controller:
     ft_sensor:
       name: ft_sensor
       frame:
-        id: panda_link8  # Wrench measurements are in this frame
+        id: panda_link7  # Wrench measurements are in this frame
       filter_coefficient: 0.1
     control:
       frame:
-        id: panda_hand  # Admittance calcs (displacement etc) are done in this frame. Usually the tool or end-effector
+        id: panda_link7  # Admittance calcs (displacement etc) are done in this frame. Usually the tool or end-effector
     fixed_world_frame:
       frame:            # Gravity points down (neg. Z) in this frame (Usually: world or base_link)
         id: panda_link0
     gravity_compensation:
       frame:
-        id: panda_link8
+        id: panda_link7
       CoG:  # specifies the center of gravity of the end effector
         pos:
           - 0.0  # x
           - 0.0  # y
           - 0.0  # z
-        force: -16.0  # mass * 9.81
+        force: 15.  # mass * 9.81
     admittance:
       selected_axes:
         - false  # x
@@ -129,25 +129,25 @@ admittance_controller:
       # Having ".0" at the end is MUST, otherwise there is a loading error
       # F = M*a + D*v + S*(x - x_d)
       mass:
-        - 1.0  # x
-        - 1.0  # y
-        - 100.0  # z
-        - 0.5  # rx
-        - 0.5  # ry
-        - 0.5  # rz
+        - 30.0  # x
+        - 30.0  # y
+        - 30.0  # z
+        - 30.0  # rx
+        - 30.0  # ry
+        - 30.0  # rz
       damping_ratio:  # damping can be used instead: zeta = D / (2 * sqrt( M * S ))
-        - 2.8  # x
-        - 2.8  # y
+        - 0.0  # x
+        - 0.0  # y
         - 0.0  # z
-        - 2.8  # rx
-        - 2.8  # ry
-        - 2.8  # rz
+        - 0.0  # rx
+        - 0.0  # ry
+        - 0.0  # rz
       stiffness:
-        - 50.0  # x
-        - 50.0  # y
-        - 0.0  # z
-        - 1.0  # rx
-        - 1.0  # ry
-        - 1.0  # rz
+        - .1  # x
+        - .1  # y
+        - .1  # z
+        - .1  # rx
+        - .1  # ry
+        - .1  # rz
     # general settings
     enable_parameter_update_without_reactivation: true
