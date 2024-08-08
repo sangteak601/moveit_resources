@@ -136,18 +136,18 @@ admittance_controller:
         - 30.0  # ry
         - 30.0  # rz
       damping_ratio:  # damping can be used instead: zeta = D / (2 * sqrt( M * S ))
-        - 0.0  # x
-        - 0.0  # y
-        - 0.0  # z
-        - 0.0  # rx
-        - 0.0  # ry
-        - 0.0  # rz
+        - 0.1  # x
+        - 0.1  # y
+        - 0.1  # z
+        - 0.1  # rx
+        - 0.1  # ry
+        - 0.1  # rz
       stiffness:
-        - .1  # x
-        - .1  # y
-        - .1  # z
-        - .1  # rx
-        - .1  # ry
-        - .1  # rz
+        - 1.  # x
+        - 1.  # y
+        - 1.  # z
+        - 1.  # rx
+        - 1.  # ry
+        - 1.  # rz
     # general settings
     enable_parameter_update_without_reactivation: true
